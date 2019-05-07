@@ -139,7 +139,7 @@ namespace DocuSign.eSign.Client
 
         private void InitializeTLSProtocol()
         {
-#if NETSTANDARD2_0
+#if NETSTANDARD2_2
             // No-op, OS should decide which is the secure TLS protocol
 #else
             SecurityProtocolType protocolVersions = new SecurityProtocolType();
@@ -206,7 +206,7 @@ namespace DocuSign.eSign.Client
             // add file parameter, if any
             foreach (var param in fileParams)
             {
-#if NETSTANDARD2_0
+#if NETSTANDARD2_2
                 request.AddFile(param.Value.Name, param.Value.Writer, param.Value.FileName, param.Value.ContentLength, param.Value.ContentType);
 #else
                 request.AddFile(param.Value.Name, param.Value.Writer, param.Value.FileName);
@@ -960,7 +960,7 @@ namespace DocuSign.eSign.Client
 
             object result = pemReader.ReadObject();
 
-#if NETSTANDARD2_0
+#if NETSTANDARD2_2
            var provider = new RSACryptoServiceProvider();
 #else
             var cspParameters = new CspParameters

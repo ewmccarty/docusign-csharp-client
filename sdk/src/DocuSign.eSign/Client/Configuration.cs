@@ -312,7 +312,7 @@ namespace DocuSign.eSign.Client
         public static String ToDebugReport()
         {
             String report = "C# SDK (DocuSign.eSign) Debug Report:\n";
-#if NETSTANDARD2_0
+#if NETSTANDARD2_2
             report += "    OS: " + System.Runtime.InteropServices.RuntimeInformation.OSDescription + "\n";
 #else
             report += "    OS: " + Environment.OSVersion + "\n";
